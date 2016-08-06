@@ -6,6 +6,8 @@
 #include <lualib.h>
 #include <psp2/kernel/processmgr.h>
 
+#include "lua_modules.h"
+
 #define LUA_MAIN_SCRIPT "main.lua"
 
 int pmain(lua_State *L);
@@ -35,6 +37,9 @@ int pmain(lua_State *L) {
     int status;
 
     luaL_checkversion(L);
+
+    // Load & Require our crafted modules
+    luarequire_modules(L);
 
     while (true) {
         status = luaL_loadfile(L, LUA_MAIN_SCRIPT);
