@@ -7,6 +7,7 @@
  * Require all created modules
  *
  * Modules list:
+ * - ctrl
  */
 void luarequire_modules(lua_State *L);
 
